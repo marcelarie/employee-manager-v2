@@ -1,5 +1,7 @@
 <?php
 require_once CLASS_VIEW;
+
+
 if (isset($message)) {
     echo $message;
 }

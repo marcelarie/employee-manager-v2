@@ -1,22 +1,28 @@
 <?php
-require_once 'app/helpers/constants.php';
+require_once 'app/config/constants.php';
+
 class Router
 {
     public $url;
     public $controller;
     public function __construct()
     {
-        if (isset($_GET['url'])) {
-            $this->url = explode('/', rtrim($_GET['url'], '/'));
+        $this->readRequest($_REQUEST['url']);
+    }
+    
+    public function readRequest($url)
+    {
+        if (isset($url)) {
+            $this->url = explode('/', rtrim($url, '/'));
             $this->callController($this->url);
-            if ( sizeof($this->url) === 2 ) {
+            if (sizeof($this->url) === 2) {
                 $action = $this->url[1];
                 $this->controller->$action($this->url[0]);
-            }else if(sizeof($this->url) >= 3 ){
+            } elseif (sizeof($this->url) >= 3) {
                 $action = $this->url[1];
                 $this->controller->$action($this->url[2]);
             }
-        }else{
+        } else {
             $this->setRoute();
         }
         echo '<pre>';
@@ -26,14 +32,13 @@ class Router
 
     public function setRoute($route = 'login')
     {
-        header("Location:{$route}");
+        header("Location: $route");
     }
 
     public function callController($url)
     {
         require_once CONTROLLERS . $url[0] . ".php";
         $hole = $url[0] . 'Controller';
-        $this->controller = new $hole( $url[0]) ;
-
+        $this->controller = new $hole($url[0]) ;
     }
 }

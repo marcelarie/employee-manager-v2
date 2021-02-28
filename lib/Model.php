@@ -21,10 +21,10 @@ abstract class Model
             "SELECT * FROM $this->dataBaseTable"
         )->fetch();
     }
-    public function getById($id)
+    public function getById($id, $key = 'email')
     {
         return $this->connect()->query(
-            "SELECT * FROM $this->dataBaseTable WHERE email='$id'"
+            "SELECT * FROM $this->dataBaseTable WHERE '$key' = '$id'"
         )->fetch();
     }
     public function getByParameters($parameters)

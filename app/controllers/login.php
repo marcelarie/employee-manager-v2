@@ -7,6 +7,7 @@ require_once 'app/config/constants.php';
 require_once CLASS_CONTROLLER;
 require_once DB_CONSTANTS;
 
+
 class LoginController extends Controller
 {
     public function __construct($name)
@@ -22,15 +23,15 @@ class LoginController extends Controller
         $user = $loginModel->getById($_REQUEST['userEmail']);
         if ($user['email'] ==  $_REQUEST['userEmail'] && $user['name'] == $_REQUEST['userPassword']) {
             require_once 'app/helpers/loginTimeOutSession.php';
+            require_once 'lib/Router.php';
+            $access = new Router;
             $_SESSION['sessionTimer'] = time();
-            echo '<script>
-            window.location.href = "../employeeDashboard"
-            </script>';
+            $access->setRoute('../employeeDashboard');
         } else {
-            echo '<script>
-            alert("User not found")
-            window.location.href = "../index.php"
-            </script>';
+            require_once 'app/helpers/loginTimeOutSession.php';
+            require_once 'lib/Router.php';
+            $access = new Router;
+            $access->setRoute('../login');
         }
     }
     public function logout()

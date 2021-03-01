@@ -8,7 +8,7 @@ class Router
     public $controller;
     public function __construct()
     {
-        $this->readRequest($_REQUEST['url']);
+        // $this->readRequest($_REQUEST['url']);
     }
 
     public function readRequest($url)
@@ -24,7 +24,7 @@ class Router
                 $this->controller->$action($this->url[2]);
             }
         } else {
-            $this->setRoute();
+            $this->setRoute('login');
         }
         echo '<pre>';
         print_r($this->url);
@@ -33,7 +33,7 @@ class Router
 
     public function setRoute($route = 'login')
     {
-        header("Location: $route");
+        header("Location:" . $route);
     }
 
     public function callController($url)

@@ -15,23 +15,23 @@ abstract class Model
     {
         return new PDO(DNS, USER, PASSWORD);
     }
+
     public function get()
     {
-        return $this->connect()->query(
-            "SELECT * FROM $this->dataBaseTable"
-        )->fetch();
+        $obj = $this->connect()->query("SELECT * FROM $this->dataBaseTable");
+
+        while ($row = $obj->fetch()) {
+            $result[] = $row;
+        }
+
+        return $result;
     }
-    public function getById($id, $key = 'email')
-    {
-        return $this->connect()->query(
-            "SELECT * FROM $this->dataBaseTable WHERE $key = '$id'"
-        )->fetch();
-    }
+
     public function getByParameters($parameters)
     {
         function querySelectGenerator($parameter, $key)
         {
-            return "WHERE '$key' = '$parameter'";
+            return "WHERE $key = '$parameter'";
         }
     
         $multipleParameters = implode(' AND ', array_map(
@@ -44,12 +44,7 @@ abstract class Model
             "SELECT * FROM $this->dataBaseTable $multipleParameters"
         )->fetch();
     }
-    // public function getByParam($param)
-    // {
-    //     return $this->connect()->query(
-    //         "SELECT * FROM $this->dataBaseTable WHERE $param[0]='$param[1]'"
-    //     )->fetch();
-    // }
+
     public function update()
     {
     }

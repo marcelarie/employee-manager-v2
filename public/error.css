@@ -1,0 +1,10 @@
+.error {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  top: 0;
+  left: 50%;
+  transition: 2s;
+  border: 1px solid black;
+  text-align: center;
+}

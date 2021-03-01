@@ -21,17 +21,23 @@ class LoginController extends Controller
         echo 'checking user';
         $user = $loginModel->getById($_REQUEST['userEmail']);
         if ($user['email'] ==  $_REQUEST['userEmail'] && $user['name'] == $_REQUEST['userPassword']) {
-            echo 'user found';
+            require_once 'app/helpers/loginTimeOutSession.php';
+            $_SESSION['sessionTimer'] = time();
+            echo '<script>
+            window.location.href = "../employeeDashboard"
+            </script>';
         } else {
             echo '<script>
-            alert("user not found");
+            alert("User not found")
             window.location.href = "../index.php"
             </script>';
         }
     }
     public function logout()
     {
-        // deslogearse
+        // destroying SESSION
+        require_once 'app/helpers/loginTimeOutSession.php';
+        session_destroy();
     }
     public function error()
     {

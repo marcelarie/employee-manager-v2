@@ -1,5 +1,6 @@
 <?php
 require_once 'app/config/constants.php';
+require_once 'app/helpers/loginTimeOutSession.php';
 
 class Router
 {
@@ -9,7 +10,7 @@ class Router
     {
         $this->readRequest($_REQUEST['url']);
     }
-    
+
     public function readRequest($url)
     {
         if (isset($url)) {
@@ -37,8 +38,18 @@ class Router
 
     public function callController($url)
     {
-        require_once CONTROLLERS . $url[0] . ".php";
-        $hole = $url[0] . 'Controller';
-        $this->controller = new $hole($url[0]) ;
+        if ($url[0] == 'login') {
+            require_once CONTROLLERS . $url[0] . ".php";
+            $hole = $url[0] . 'Controller';
+            $this->controller = new $hole($url[0]);
+        } else {
+            if (sessionCheck()) {
+                require_once CONTROLLERS . $url[0] . ".php";
+                $hole = $url[0] . 'Controller';
+                $this->controller = new $hole($url[0]);
+            } else {
+                header("Location: login");
+            }
+        }
     }
 }

@@ -24,7 +24,7 @@ abstract class Model
     public function getById($id, $key = 'email')
     {
         return $this->connect()->query(
-            "SELECT * FROM $this->dataBaseTable WHERE '$key' = '$id'"
+            "SELECT * FROM $this->dataBaseTable WHERE $key = '$id'"
         )->fetch();
     }
     public function getByParameters($parameters)

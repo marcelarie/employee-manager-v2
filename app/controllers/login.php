@@ -1,6 +1,4 @@
 <?php
-echo 'login controller';
-echo '<br>';
 
 // requires
 require_once 'app/config/constants.php';
@@ -20,7 +18,7 @@ class LoginController extends Controller
     {
         $loginModel = new Loginmodel('employees');
         echo 'checking user';
-        $user = $loginModel->getById($_REQUEST['userEmail']);
+        $user = $loginModel->getByParameters([ 'email' => $_REQUEST['userEmail']]);
         if ($user['email'] ==  $_REQUEST['userEmail'] && $user['name'] == $_REQUEST['userPassword']) {
             require_once 'app/helpers/loginTimeOutSession.php';
             require_once 'lib/Router.php';

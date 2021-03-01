@@ -7,10 +7,15 @@ abstract class Controller
     {
         $this->name = $name;
     }
-    public function load($type){
+    public function load($type)
+    {
         $path = $type . $this->name . '.php';
         if (file_exists($path)) {
             require_once $path;
         }
+
+        // echo '<pre>';
+        // echo $path;
+        // echo '</pre>';
     }
 }

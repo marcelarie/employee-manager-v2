@@ -1,6 +1,7 @@
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
 
 <div id="employees-dashboard" class="employees-dashboard">
-    <table class="">
+    <table class="table table-striped table-hover">
         <thead class="">
             <tr>
                 <th>Name</th>
@@ -50,7 +51,7 @@ foreach ($employees as $employee) {
     echo '<td>'.$employee['gender'].'</td>';
     echo '<td>'.$employee['age'].'</td>';
     echo '<td>'.$employee['city'].'</td>';
-    echo '<td><a class="" href="employeeDashboard/getByParameters/id=1">FILE</a></td>';
+    echo "<td><a class='' href='employeeFile'>FILE</a></td>";
     echo '</tr>';
 }
 ?>

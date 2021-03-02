@@ -43,6 +43,8 @@
             </tr>
         </form>
 <?php
+$employees = $data['employees'];
+
 foreach ($employees as $employee) {
     echo '<tr>';
     echo '<td>'.$employee['name'].'</td>';
@@ -51,7 +53,7 @@ foreach ($employees as $employee) {
     echo '<td>'.$employee['gender'].'</td>';
     echo '<td>'.$employee['age'].'</td>';
     echo '<td>'.$employee['city'].'</td>';
-    echo "<td><a class='' href='employeeFile'>FILE</a></td>";
+    echo "<td><a class='btn btn-info' href='employeeFile'>Profile</a></td>";
     echo '</tr>';
 }
 ?>

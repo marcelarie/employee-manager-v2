@@ -10,3 +10,5 @@ class EmployeeDashboardModel extends Model
 $employeeDashboardModel = new EmployeeDashboardModel('employees');
 
 $employees = $employeeDashboardModel->get();
+
+$data = [ 'employees' => $employees];

@@ -1,11 +1,10 @@
-
+<link href='https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css' rel='stylesheet' integrity='sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl' crossorigin='anonymous'>
 <?php
-require_once CLASS_VIEW;
-
 if (isset($message)) {
     echo $message;
 }
-$login = new View("
+?>
+
 <div class='input-group flex-nowrap absolute-center'>
     <form action='login/checkUser' method='POST'>
       <input type='text' name='userEmail' class='form-control' placeholder='Username' aria-label='Username' aria-describedby='addon-wrapping'>
@@ -13,4 +12,3 @@ $login = new View("
       <input type='submit' class='btn btn-dark' value='Login'></input>
     </form>
 </div>
-");

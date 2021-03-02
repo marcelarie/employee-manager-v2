@@ -11,6 +11,7 @@ class EmployeeDashboardController extends Controller
     {
         parent::__construct($name);
         require_once MODELS . $name . '.php';
-        require_once VIEWS . $name . '.php';
+        require_once CLASS_VIEW;
+        $view = new View($name, $data);
     }
 }

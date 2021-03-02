@@ -9,4 +9,4 @@ class EmployeeFileModel extends Model
 
 $employeeFileModel = new EmployeeFileModel('employees');
 
-$employee = $employeeFileModel ->get();
+$data = $employeeFileModel->getByParameters([ 'id' => 1 ]);

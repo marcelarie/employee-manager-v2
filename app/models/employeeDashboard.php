@@ -6,9 +6,3 @@ require_once CLASS_MODEL;
 class EmployeeDashboardModel extends Model
 {
 }
-
-$employeeDashboardModel = new EmployeeDashboardModel('employees');
-
-$employees = $employeeDashboardModel->get();
-
-$data = [ 'employees' => $employees];

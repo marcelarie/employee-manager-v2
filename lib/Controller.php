@@ -1,21 +1,17 @@
 <?php
+require_once 'app/config/constants.php';
+require_once DB_CONSTANTS;
+
 abstract class Controller
 {
-    private $name;
+    public $name;
+    public $action;
+    public $parameter;
 
-    public function __construct($name)
+    public function __construct($name, $action, $parameter)
     {
         $this->name = $name;
-    }
-    public function load($type)
-    {
-        $path = $type . $this->name . '.php';
-        if (file_exists($path)) {
-            require_once $path;
-        }
-
-        // echo '<pre>';
-        // echo $path;
-        // echo '</pre>';
+        $this->action = $action;
+        $this->parameter = $parameter;
     }
 }

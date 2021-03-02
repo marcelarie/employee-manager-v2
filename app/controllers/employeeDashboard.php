@@ -7,11 +7,19 @@ require_once DB_CONSTANTS;
 
 class EmployeeDashboardController extends Controller
 {
-    public function __construct($name)
+    public function get()
     {
-        parent::__construct($name);
-        require_once MODELS . $name . '.php';
+        require_once MODELS . $this->name . '.php';
+        $modelName = $this->name . 'Model';
+        $model = new $modelName($this->name, $data);
+
+        $employeeDashboardModel = new EmployeeDashboardModel('employees');
+
+        $employees = $employeeDashboardModel->get();
+
+        $data = [ 'employees' => $employees];
+
         require_once CLASS_VIEW;
-        $view = new View($name, $data);
+        $view = new View($this->name, $data);
     }
 }

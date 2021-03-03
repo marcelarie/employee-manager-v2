@@ -29,6 +29,7 @@ if ($employees[$_SESSION['userId'] - 1]['admin']) {
         echo "<a href='../show/$employee[id]' class='btn btn-warning'>Back</a>";
         echo "<input type='submit' class='btn btn-success'></input>";
     }
+    echo "<a href='../delete/$employee[id]' class='btn btn-danger'>DELETE</a>";
 }
 echo "</form>
 </div>";

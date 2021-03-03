@@ -58,10 +58,12 @@ abstract class Model
             phoneNumber = '$phoneNumber'
             WHERE id = $id"
         );
-
-        print_r($this->dataBaseTable);
     }
-    public function delete()
+    public function delete($id)
     {
+        $this->connect()->query(
+            "DELETE FROM $this->dataBaseTable
+             WHERE id = $id"
+        );
     }
 }

@@ -51,4 +51,16 @@ class EmployeeFileController extends Controller
         $access = new Router;
         $access->setRoute("../show/$id");
     }
+    public function delete($id)
+    {
+        require_once MODELS . $this->name . '.php';
+        require_once 'lib/Router.php';
+
+        // extract($data);
+        $employeeFileModel = new EmployeeFileModel('employees');
+        $employeeFileModel->delete($id);
+        
+        $access = new Router;
+        $access->setRoute("../../employeeDashboard/table/all");
+    }
 }

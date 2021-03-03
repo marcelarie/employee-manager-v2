@@ -2,20 +2,11 @@
 
 class View
 {
-    public $view;
-    public function __construct($view)
+    public $name;
+    public $data;
+    public function __construct($name, $data)
     {
-        $this->view = $view;
-        $this->render($view);
-    }
-    public function render($html)
-    {
-        echo "
-        <head>
-        <title>Employee Manager</title>
-        </head>
-        <body> 
-            {$html} 
-        </body>";
+        $this->name = $name;
+        require_once VIEWS . $name . '.php';
     }
 }

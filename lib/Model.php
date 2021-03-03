@@ -20,11 +20,7 @@ abstract class Model
     {
         $obj = $this->connect()->query("SELECT * FROM $this->dataBaseTable");
 
-        while ($row = $obj->fetch()) {
-            $result[] = $row;
-        }
-
-        return $result;
+        return $obj->fetchAll();
     }
 
     public function getByParameters($parameters)

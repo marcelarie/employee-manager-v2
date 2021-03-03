@@ -4,7 +4,7 @@ class View
 {
     public $name;
     public $data;
-    public function __construct($name, $data)
+    public function __construct($name)
     {
         $this->name = $name;
         // echo 'hey';

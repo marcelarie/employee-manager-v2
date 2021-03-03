@@ -12,17 +12,19 @@ class LoginController extends Controller
     public function show()
     {
         require_once CLASS_VIEW;
-        $view = new View($this->name, $this->data);
+        $view = new View($this->name);
     }
     public function checkUser()
     {
         require_once MODELS . $this->name . '.php';
         $loginModel = new LoginModel('employees');
 
-        $user = $loginModel->getByParameters([ 'email' => $_REQUEST['userEmail']]);
+        $user = $loginModel->getByParameters(['email' => $_REQUEST['userEmail']]);
 
-        if ($user['email'] ===  $_REQUEST['userEmail'] &&
-             $user['name'] === $_REQUEST['userPassword']) {
+        if (
+            $user['email'] ===  $_REQUEST['userEmail'] &&
+            $user['name'] === $_REQUEST['userPassword']
+        ) {
             require_once 'app/helpers/loginTimeOutSession.php';
             require_once 'lib/Router.php';
 
@@ -35,7 +37,7 @@ class LoginController extends Controller
             require_once 'lib/Router.php';
 
             $access = new Router;
-            $access->setRoute('../login');
+            $access->setRoute('../login/show');
         }
     }
     public function logout()

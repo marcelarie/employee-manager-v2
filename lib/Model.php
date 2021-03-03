@@ -2,13 +2,12 @@
 
 abstract class Model
 {
-    private $name;
     private $dataBaseTable;
 
     public function __construct($dataBaseTable)
     {
-        // $this->name = $name;
         $this->dataBaseTable = $dataBaseTable;
+        echo $this->dataBaseTable;
     }
 
     public function connect()

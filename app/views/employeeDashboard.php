@@ -4,6 +4,12 @@
     <table class="table table-striped table-hover">
         <thead class="">
             <tr>
+<?php
+$employees = $data['employees'];
+    if ($employees[$_SESSION['userId'] - 1 ]['admin']) {
+        echo "<th>ID</th>";
+    }
+?>
                 <th>Name</th>
                 <th>Last name</th>
                 <th>Email</th>
@@ -16,6 +22,11 @@
         <tbody>
         <form action="../../index.php" id="add-patient" method="POST">
             <tr>
+<?php
+    if ($employees[$_SESSION['userId'] - 1 ]['admin']) {
+        echo "<td></td>";
+    }
+?>
                 <td>
                     <input name="name" type="text" class="form-control" id="add-patient__name" form="add-patient" placeholder="" required>
                 </td>
@@ -43,17 +54,18 @@
             </tr>
         </form>
 <?php
-$employees = $data['employees'];
-
 foreach ($employees as $employee) {
     echo '<tr>';
+    if ($employees[$_SESSION['userId'] - 1 ]['admin']) {
+        echo '<td>'.$employee['id'].'</td>';
+    }
     echo '<td>'.$employee['name'].'</td>';
     echo '<td>'.$employee['lastName'].'</td>';
     echo '<td>'.$employee['email'].'</td>';
     echo '<td>'.$employee['gender'].'</td>';
     echo '<td>'.$employee['age'].'</td>';
     echo '<td>'.$employee['city'].'</td>';
-    echo "<td><a class='btn btn-info' href='employeeFile'>Profile</a></td>";
+    echo "<td><a class='btn btn-info' href='../../employeeFile/show'>Profile</a></td>";
     echo '</tr>';
 }
 ?>

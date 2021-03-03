@@ -7,7 +7,7 @@ require_once DB_CONSTANTS;
 
 class EmployeeDashboardController extends Controller
 {
-    public function get($all)
+    public function table($all)
     {
         require_once MODELS . $this->name . '.php';
         $modelName = $this->name . 'Model';

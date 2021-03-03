@@ -9,13 +9,6 @@ require_once DB_CONSTANTS;
 
 class LoginController extends Controller
 {
-    // public function __construct($name, $action, $parameter)
-    // {
-    // parent::__construct($name, $action, $parameter);
-    // print_r($this->url);
-    // require_once CLASS_VIEW;
-    // $view = new View($name, $data);
-    // }
     public function show()
     {
         require_once CLASS_VIEW;
@@ -36,7 +29,7 @@ class LoginController extends Controller
             $access = new Router;
             $_SESSION['sessionTimer'] = time();
             $_SESSION['userId'] = $user['id'];
-            $access->setRoute('../employeeDashboard/get');
+            $access->setRoute('../employeeDashboard/table/all');
         } else {
             require_once 'app/helpers/loginTimeOutSession.php';
             require_once 'lib/Router.php';

@@ -19,7 +19,7 @@ class Router
             $action = $this->url[1];
             $parameters = $this->url[2];
 
-            print_r($this->url);
+            // print_r($this->url);
             $controller = $name . 'Controller';
 
             $this->callController($this->url);
@@ -27,14 +27,14 @@ class Router
             if (sizeof($this->url) === 2) {
                 $this->controller->$action($name);
             } elseif (sizeof($this->url) >= 3) {
-                $this->$controller->$action($name, $parameters);
+                $this->controller->$action($parameters);
             }
         } else {
-            $this->setRoute('login/show');
+            $this->setRoute();
         }
     }
 
-    public function setRoute($route = 'login')
+    public function setRoute($route = 'login/show')
     {
         header("Location:" . $route);
     }

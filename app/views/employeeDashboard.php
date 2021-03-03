@@ -22,7 +22,7 @@
             </tr>
         </thead>
         <tbody>
-            <form action="../../index.php" id="add-patient" method="POST">
+            <form action="../../employeeDashboard/table/all" id="add-patient" method="POST">
                 <tr>
                     <?php
                     if ($employees[$_SESSION['userId'] - 1]['admin']) {

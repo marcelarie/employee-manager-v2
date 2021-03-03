@@ -8,7 +8,8 @@ class EmployeeFileController extends Controller
     public function __construct($name, $action, $parameter)
     {
         parent::__construct($name, $action, $parameter);
-        if ($_REQUEST['url'] === 'employeeFile/controllers/employeeFile.php') {
+        if ($_REQUEST['name'] &&
+        $_REQUEST['url'] === 'employeeFile/controllers/employeeFile.php') {
             $data = $_REQUEST;
             $this->save($data);
         }

@@ -40,6 +40,23 @@ abstract class Model
         )->fetch();
     }
 
+    public function add($data)
+    {
+        extract($data);
+
+        $this->connect()->query(
+            "INSERT INTO $this->dataBaseTable
+
+            (name, lastName, email, gender,
+            age, streetAddress, city, state,
+            PC, phoneNumber)
+
+            VALUES ( '$name', '$lastName', '$email',
+            '$gender', $age, '$streetAddress',
+            '$city', '$state', '$PC','$phoneNumber'
+            )"
+        );
+    }
     public function update($data)
     {
         extract($data);

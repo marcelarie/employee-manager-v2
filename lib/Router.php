@@ -30,11 +30,11 @@ class Router
                 $this->controller->$action($parameters);
             }
         } else {
-            $this->setRoute('login/show');
+            $this->setRoute();
         }
     }
 
-    public function setRoute($route = 'login')
+    public function setRoute($route = 'login/show')
     {
         header("Location:" . $route);
     }

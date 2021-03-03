@@ -6,7 +6,3 @@ require_once CLASS_MODEL;
 class EmployeeFileModel extends Model
 {
 }
-
-$employeeFileModel = new EmployeeFileModel('employees');
-
-$data = $employeeFileModel->getByParameters([ 'id' => 1 ]);

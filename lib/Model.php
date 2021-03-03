@@ -40,8 +40,26 @@ abstract class Model
         )->fetch();
     }
 
-    public function update()
+    public function update($data)
     {
+        extract($data);
+
+        $obj = $this->connect()->query(
+            "UPDATE $this->dataBaseTable SET
+            name = '$name',
+            lastName = '$lastName',
+            email = '$email',
+            gender = '$gender',
+            age = '$age',
+            streetAddress = '$age',
+            city = '$city',
+            state = '$state',
+            PC = '$PC',
+            phoneNumber = '$PC'
+            "
+        );
+
+        return $obj->fetchAll();
     }
     public function delete()
     {

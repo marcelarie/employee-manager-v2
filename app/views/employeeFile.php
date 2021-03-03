@@ -2,10 +2,12 @@
 
 <?php
 $employee = $data;
+$name = $employee['name'];
 
 echo "<div class='card' style='width: 18rem;'>
-    <img src=$employee[avatar] class='card-img-top' alt='...'>
-    <form class='card-body'>";
+    <!-- <img src='https://avatars.dicebear.com/api/identicon/$name.svg' class='card-img-top' alt='...'> -->
+    <img src='https://avatars.dicebear.com/api/avataaars/$name.svg?m=4&b=%23282828&style=circle&topChance=100' class='card-img-top' alt='...'>
+    <form action='../controllers/employeeFile.php' class='card-body'>";
 foreach ($employee as $index => $row) {
     $isString = gettype($index) == 'string';
 
@@ -16,7 +18,8 @@ foreach ($employee as $index => $row) {
     }
 }
 if ($employees[$_SESSION['userId'] - 1]['admin']) {
-    echo "<a href='../$action/" . $employee['id'] . "' class='btn btn-success'>$button</a>";
+    echo "<a href='../$action/" . $employee['id'] . "' type='submit' class='btn btn-success'>$button</a>";
+    echo "<input type='submit' class='btn btn-success'></input>";
 }
 echo "</form>
 </div>";

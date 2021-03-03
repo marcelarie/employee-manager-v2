@@ -11,13 +11,13 @@ class EmployeeDashboardController extends Controller
     {
         require_once MODELS . $this->name . '.php';
         $modelName = $this->name . 'Model';
-        $model = new $modelName($this->name, $data);
+        $model = new $modelName($this->name);
 
         $employeeDashboardModel = new EmployeeDashboardModel('employees');
 
         $employees = $employeeDashboardModel->get();
 
-        $data = [ 'employees' => $employees ];
+        $data = ['employees' => $employees];
 
         require_once CLASS_VIEW;
         $view = new View($this->name, $data);

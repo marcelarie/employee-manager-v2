@@ -12,7 +12,7 @@ class LoginController extends Controller
     public function show()
     {
         require_once CLASS_VIEW;
-        $view = new View($this->name);
+        $view = new View($this->name, $this->data);
     }
     public function checkUser()
     {
@@ -37,7 +37,7 @@ class LoginController extends Controller
             require_once 'lib/Router.php';
 
             $access = new Router;
-            $access->setRoute('../login/show');
+            $access->setRoute('../login');
         }
     }
     public function logout()

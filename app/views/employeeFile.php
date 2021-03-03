@@ -6,7 +6,7 @@ $employee = $data;
 echo "<div class='card' style='width: 18rem;'>
     <img src=$employee[avatar] class='card-img-top' alt='...'>
     <form class='card-body'>";
-foreach ($employee as $index=>$row) {
+foreach ($employee as $index => $row) {
     $isString = gettype($index) == 'string';
 
     if ($isString && $index !== 'avatar' && $index !== 'admin') {
@@ -15,8 +15,8 @@ foreach ($employee as $index=>$row) {
         echo "<input class='card-title' name='$index' value='$row' $admin></input>";
     }
 }
-    if ($data['admin'] === '1') {
-        echo "<a href='employeeFile/a' class='btn btn-success'>EDIT</a>";
-    }
-    echo "</form>
+if ($employees[$_SESSION['userId'] - 1]['admin']) {
+    echo "<a href='../edit/" . $employee['id'] . "' class='btn btn-success'>EDIT</a>";
+}
+echo "</form>
 </div>";

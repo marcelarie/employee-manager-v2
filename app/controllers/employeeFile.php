@@ -8,12 +8,24 @@ class EmployeeFileController extends Controller
     public function show($id)
     {
         require_once MODELS . $this->name . '.php';
-        $employeeFileModel = new EmployeeFileModel('employees');
-        $data = $employeeFileModel->getByParameters([ 'id' => 1 ]);
 
-        
+        $employeeFileModel = new EmployeeFileModel('employees');
+        $data = $employeeFileModel->getByParameters(['id' => $id]);
+        $employees = $employeeFileModel->get();
+        $admin = 'disabled';
+
         require_once VIEWS . $this->name . '.php';
-        // echo $this->name;
-        // $view = new View($this->name, $data);
+    }
+    public function edit($id)
+    {
+        require_once MODELS . $this->name . '.php';
+
+        $employeeFileModel = new EmployeeFileModel('employees');
+        $data = $employeeFileModel->getByParameters(['id' => $id]);
+        $employees = $employeeFileModel->get();
+        $admin = '';
+
+
+        require_once VIEWS . $this->name . '.php';
     }
 }

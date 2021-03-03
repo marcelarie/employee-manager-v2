@@ -22,7 +22,6 @@ class EmployeeFileController extends Controller
         $data = $employeeFileModel->getByParameters(['id' => $id]);
         $employees = $employeeFileModel->get();
         $admin = 'disabled';
-        $button = 'EDIT';
         $action = 'edit';
 
         require_once VIEWS . $this->name . '.php';
@@ -35,7 +34,6 @@ class EmployeeFileController extends Controller
         $data = $employeeFileModel->getByParameters(['id' => $id]);
         $employees = $employeeFileModel->get();
         $admin = '';
-        $button = 'SAVE';
         $action = 'save';
 
         require_once VIEWS . $this->name . '.php';
@@ -43,14 +41,14 @@ class EmployeeFileController extends Controller
 
     public function save($data)
     {
-        require_once 'lib/Router.php';
         require_once MODELS . $this->name . '.php';
-        $access = new Router;
-        $employeeFileModel = new EmployeeFileModel('employees');
+        require_once 'lib/Router.php';
 
-        $employees = $employeeFileModel->update($data);
+        extract($data);
+        $employeeFileModel = new EmployeeFileModel('employees');
+        $employeeFileModel->update($data);
         
-        $access->setRoute('../show/'.$data['id']);
-        // $update = $employeeFileModel->update();
+        $access = new Router;
+        $access->setRoute("../show/$id");
     }
 }

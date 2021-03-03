@@ -14,12 +14,21 @@ foreach ($employee as $index => $row) {
     if ($isString && $index !== 'avatar' && $index !== 'admin') {
         echo "<label for='$index'>$index</label>";
         echo "<br>";
-        echo "<input class='card-title' name='$index' value='$row' $admin></input>";
+        if ($index === 'id') {
+            echo "<input class='card-title' name='$index' value='$row' readonly></input>";
+        } else {
+            echo "<input class='card-title' name='$index' value='$row' $admin required></input>";
+        }
     }
 }
 if ($employees[$_SESSION['userId'] - 1]['admin']) {
-    echo "<a href='../$action/" . $employee['id'] . "' type='submit' class='btn btn-success'>$button</a>";
-    echo "<input type='submit' class='btn btn-success'></input>";
+    if ($action === 'edit') {
+        echo "<a href='../../employeeDashboard/table/all' class='btn btn-warning'>Back</a>";
+        echo "<a href='../$action/$employee[id]' class='btn btn-primary'>Edit</a>";
+    } else {
+        echo "<a href='../show/$employee[id]' class='btn btn-warning'>Back</a>";
+        echo "<input type='submit' class='btn btn-success'></input>";
+    }
 }
 echo "</form>
 </div>";

@@ -7,7 +7,7 @@ abstract class Model
     public function __construct($dataBaseTable)
     {
         $this->dataBaseTable = $dataBaseTable;
-        echo $this->dataBaseTable;
+        // echo $this->dataBaseTable;
     }
 
     public function connect()
@@ -44,22 +44,22 @@ abstract class Model
     {
         extract($data);
 
-        $obj = $this->connect()->query(
+        $this->connect()->query(
             "UPDATE $this->dataBaseTable SET
             name = '$name',
             lastName = '$lastName',
             email = '$email',
             gender = '$gender',
-            age = '$age',
-            streetAddress = '$age',
+            age = $age,
+            streetAddress = '$streetAddress',
             city = '$city',
             state = '$state',
             PC = '$PC',
-            phoneNumber = '$PC'
-            "
+            phoneNumber = '$phoneNumber'
+            WHERE id = $id"
         );
 
-        return $obj->fetchAll();
+        print_r($this->dataBaseTable);
     }
     public function delete()
     {

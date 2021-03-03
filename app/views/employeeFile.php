@@ -16,7 +16,7 @@ foreach ($employee as $index => $row) {
     }
 }
 if ($employees[$_SESSION['userId'] - 1]['admin']) {
-    echo "<a href='../edit/" . $employee['id'] . "' class='btn btn-success'>EDIT</a>";
+    echo "<a href='../$action/" . $employee['id'] . "' class='btn btn-success'>$button</a>";
 }
 echo "</form>
 </div>";

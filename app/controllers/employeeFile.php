@@ -13,6 +13,8 @@ class EmployeeFileController extends Controller
         $data = $employeeFileModel->getByParameters(['id' => $id]);
         $employees = $employeeFileModel->get();
         $admin = 'disabled';
+        $button = 'EDIT';
+        $action = 'edit';
 
         require_once VIEWS . $this->name . '.php';
     }
@@ -24,6 +26,8 @@ class EmployeeFileController extends Controller
         $data = $employeeFileModel->getByParameters(['id' => $id]);
         $employees = $employeeFileModel->get();
         $admin = '';
+        $button = 'SAVE';
+        $action = 'save';
 
 
         require_once VIEWS . $this->name . '.php';

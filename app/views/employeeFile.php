@@ -4,8 +4,7 @@ $employee = $data[0];
 
 $name = $employee['name'];
 
-echo "<div class='card' style='width: 18rem;'>
-    <!-- <img src='https://avatars.dicebear.com/api/identicon/$name.svg' class='card-img-top' alt='...'> -->
+echo "<div class='card employee-file'>
     <img src='https://avatars.dicebear.com/api/avataaars/$name.svg?m=4&b=%23282828&style=circle&topChance=100&eyes[]=default&eyebrow[]=default&mouth[]=smile' class='card-img-top' alt='...'>
     <form action='../controllers/employeeFile.php' class='card-body'>";
 foreach ($employee as $index => $row) {
@@ -13,7 +12,6 @@ foreach ($employee as $index => $row) {
 
     if ($isString && $index !== 'avatar' && $index !== 'admin') {
         echo "<label for='$index'>$index</label>";
-        echo "<br>";
         if ($index === 'id') {
             echo "<input class='card-title' name='$index' value='$row' readonly></input>";
         } else {

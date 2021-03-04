@@ -1,0 +1,18 @@
+
+.employee-file {
+    display: flex;
+    flex-direction: row;
+    width: 70vw;
+    margin: 0 auto;
+}
+.employee-file img {
+    max-width: 200px;
+}
+
+.employee-file form {
+    display: flex;
+    flex-direction: column;
+}
+.employee-file form label {
+    flex: 1;
+}

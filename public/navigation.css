@@ -16,3 +16,23 @@ nav li {
 .admin-panel a {
     font-size: 1.5em;
 }
+
+.navigation-links {
+    font-size: 1em;
+}
+
+.navigation-container {
+    display: flex;
+    align-items: center
+}
+.navigation-user {
+    margin: auto 1em;
+    font-size: smaller;
+}
+.navigation-logout {
+    font-size: 0.5em;
+    font-weight: 500;
+}
+.navigation-control {
+    font-size: 0.7em;
+}

@@ -7,13 +7,16 @@
     <ul class="admin-panel" >
 <?php
     if ($employees[$_SESSION['userId'] - 1]['admin']) {
-        echo "<li><a href='../../adminPanel/table/all'> Control Panel⚙️</a></li>";
+        echo "<li class='navigation-control'><a href='../../adminPanel/table/all'> Control Panel</a></li>";
     }
 ?>
 <?php
     $name = $_SESSION['userName'];
     $id = $_SESSION['userId'];
-    echo "<p><a href='../../employeeFile/show/$id'>$name</a></p>";
+    echo "<div class='navigation-container'>";
+    echo "<p class='navigation-user'><a href='../../employeeFile/show/$id'>$name</a></p>";
+    echo "<button class='navigation-logout btn btn-success'><a href='../../login/logout'>Logout</a></button>";
+    echo "</div>";
 ?>
     </ul>
 </nav>

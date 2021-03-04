@@ -1,5 +1,11 @@
 a {
     text-decoration: none;
+    color: inherit;
+}
+a:hover {
+    color: inherit;
+    opacity: 0.9;
+    text-decoration: underline;
 }
 /* hide arrows on input number */
 /* Chrome, Safari, Edge, Opera */

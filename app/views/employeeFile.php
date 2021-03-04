@@ -20,8 +20,9 @@ echo "<div class='card employee-file'>
 foreach ($employee as $index => $row) {
     $isString = gettype($index) == 'string';
 
+    $label = ucfirst($index);
     if ($isString && $index !== 'avatar' && $index !== 'admin') {
-        echo "<label for='$index'>$index</label>";
+        echo "<label class='label-title' for='$index'>$label</label>";
         if ($index === 'id') {
             echo "<input class='card-title' name='$index' value='$row' readonly></input>";
         } else {

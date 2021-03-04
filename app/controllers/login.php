@@ -37,14 +37,18 @@ class LoginController extends Controller
             require_once 'lib/Router.php';
 
             $access = new Router;
-            $access->setRoute('../login');
+            $access->setRoute('../login/show');
         }
     }
     public function logout()
     {
         // destroying SESSION
         require_once 'app/helpers/loginTimeOutSession.php';
+        require_once 'lib/Router.php';
+        $access = new Router;
+
         session_destroy();
+        $access->setRoute('../login/show');
     }
     public function error()
     {

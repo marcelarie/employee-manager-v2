@@ -22,7 +22,7 @@ CREATE TABLE employees (
 
 INSERT INTO employees 
 (name, lastName, email, gender, age, streetAddress, city, state, PC, phoneNumber, admin) VALUES
-('Alfonso', 'Leiff', 'jackon@network.com', 'male', 24, '126', 'San Jose', 'CA', '394221', '73836276273', 1),
+('Alfonso', 'Leiff', 'djaskld@network.com', 'male', 24, '126', 'San Jose', 'CA', '394221', '73836276273', 1),
 ('Rack', 'Leiff', 'jackon@network.com', 'male', 24, '126', 'San Jose', 'CA', '394221', '73836276273', 1),
 ('John', 'Doe', 'jhondoe@foo.com', 'male', 34, '89', 'New York', 'WA', '09889', '1283645645', 0),
 ('Leila', 'Mills', 'mills@leila.com', 'female', 29, '55', 'San Diego', 'CA', '098765', '9983632461', 0),

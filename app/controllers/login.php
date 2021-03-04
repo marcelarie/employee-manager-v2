@@ -18,7 +18,7 @@ class LoginController extends Controller
         require_once MODELS . $this->name . '.php';
         $loginModel = new LoginModel('employees');
 
-        $user = $loginModel->getByParameters(['email' => $_REQUEST['userEmail']]);
+        $user = $loginModel->getByParameters(['email' => $_REQUEST['userEmail']])[0];
 
         if (
             $user['email'] ===  $_REQUEST['userEmail'] &&

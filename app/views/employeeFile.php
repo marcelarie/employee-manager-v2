@@ -1,6 +1,7 @@
 
 <?php
-$employee = $data;
+$employee = $data[0];
+
 $name = $employee['name'];
 
 echo "<div class='card' style='width: 18rem;'>

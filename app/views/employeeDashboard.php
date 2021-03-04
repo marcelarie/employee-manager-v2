@@ -1,4 +1,3 @@
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
 
 <div id="employees-dashboard" class="employees-dashboard">
     <table class="table table-striped table-hover">
@@ -22,40 +21,38 @@
             </tr>
         </thead>
         <tbody>
-            <form action="../../employeeDashboard/table/all" id="add-patient" method="POST">
-                <tr>
-                    <?php
+                <?php
+            echo "<form action='../../employeeDashboard/table/all' id='add-patient' method='POST'>";
+                echo "<tr>";
                     if ($employees[$_SESSION['userId'] - 1]['admin']) {
                         echo "<td></td>";
+                        echo "<td>";
+                        echo "<input name='name' type='text' class='form-control' id='add-patient__name' form='add-patient' placeholder='' required>";
+                        echo "</td>";
+                        echo "<td>";
+                        echo "<input name='lastName' type='text' class='form-control' id='add-patient__last-name' form='add-patient' placeholder='' required>";
+                        echo "</td>";
+                        echo "<td>";
+                        echo "<input name='email' type='email' class='form-control' id='add-patient__email' form='add-patient' placeholder='name@example.com' required>";
+                        echo "</td>";
+                        echo "<td>";
+                        echo "<select name='gender' type='text' class='form-control dashboard-select' id='add-patient__gender' form='add-patient' placeholder='' required>";
+                        echo "<option value='male'>male</option>";
+                        echo "<option value='female'>female</option>";
+                        echo "</select>";
+                        echo "</td>";
+                        echo "<td>";
+                        echo "<input name='age' type='number' class='form-control' id='add-patient__age' form='add-patient' placeholder='' required>";
+                        echo "</td>";
+                        echo "<td>";
+                        echo "<input name='city' type='text' class='form-control' id='add-patient__city' form='add-patient' placeholder='' required>";
+                        echo "</td>";
+                        echo "<td>";
+                        echo "<input class='btn btn-success' form='add-patient' type='submit'></input>";
+                        echo "</td>";
+                        echo "</tr>";
+                        echo "</form>";
                     }
-                    ?>
-                    <td>
-                        <input name="name" type="text" class="form-control" id="add-patient__name" form="add-patient" placeholder="" required>
-                    </td>
-                    <td>
-                        <input name="lastName" type="text" class="form-control" id="add-patient__last-name" form="add-patient" placeholder="" required>
-                    </td>
-                    <td>
-                        <input name="email" type="email" class="form-control" id="add-patient__email" form="add-patient" placeholder="name@example.com" required>
-                    </td>
-                    <td>
-                        <select name="gender" type="text" class="form-control dashboard-select" id="add-patient__gender" form="add-patient" placeholder="" required>
-                            <option value="male">male</option>
-                            <option value="female">female</option>
-                        </select>
-                    </td>
-                    <td>
-                        <input name="age" type="number" class="form-control" id="add-patient__age" form="add-patient" placeholder="" required>
-                    </td>
-                    <td>
-                        <input name="city" type="text" class="form-control" id="add-patient__city" form="add-patient" placeholder="" required>
-                    </td>
-                    <td>
-                        <input class="btn btn-success" form="add-patient" type="submit"></input>
-                    </td>
-                </tr>
-            </form>
-            <?php
             foreach ($employees as $employee) {
                 echo '<tr>';
                 if ($employees[$_SESSION['userId'] - 1]['admin']) {

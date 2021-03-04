@@ -1,6 +1,6 @@
 
 <nav>
-    <h1>Employee Manager</h1>
+    <h1><a href="../../employeeDashboard/table/all" >Employee Manager</a></h1>
     <ul class="navigation-links" >
         <li><a href="../../employeeDashboard/table/all" >Dashboard</a></li>
     </ul>

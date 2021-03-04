@@ -1,0 +1,27 @@
+.message {
+    position: absolute;
+    width: 50%;
+    padding: 2em  0 0 0;
+    z-index: 2;
+    background-color: white;
+    border: 2px solid black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 15px;
+}
+
+.message div {
+    margin-bottom: 1em;
+}
+
+.message-created {
+    font-size: smaller;
+    color: darkgray;
+    font-weight: 600;
+}
+
+.message-body {
+    font-weight: 500;
+    color: var(--black);
+}

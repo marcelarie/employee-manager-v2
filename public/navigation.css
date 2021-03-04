@@ -1,0 +1,18 @@
+nav, nav ul {
+    display: flex;
+    list-style: none;
+    margin: auto 0;
+    justify-content: space-between;
+}
+nav li {
+    margin: 0 2em;
+}
+.admin-panel {
+    display: flex;
+    align-items: center;
+    justify-self: right;
+}
+
+.admin-panel a {
+    font-size: 1.5em;
+}

@@ -49,6 +49,7 @@ class Router
         } else {
             if (sessionCheck()) {
                 require_once CONTROLLERS . $url[0] . ".php";
+                require_once 'app/views/navigationBar.php';
                 $controller = $url[0] . 'Controller';
                 $this->controller = new $controller($url[0], $url[1], $url[2]);
             } else {

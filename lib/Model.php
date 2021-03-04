@@ -37,21 +37,23 @@ abstract class Model
 
         return $this->connect()->query(
             "SELECT * FROM $this->dataBaseTable $multipleParameters"
-        )->fetch();
+        )->fetchAll();
     }
 
     public function add($data)
     {
         extract($data);
 
+        $admin = $admin ? '1' : '0';
+
         $this->connect()->query(
             "INSERT INTO $this->dataBaseTable
 
-            (name, lastName, email, gender,
+            (name, admin, lastName, email, gender,
             age, streetAddress, city, state,
             PC, phoneNumber)
 
-            VALUES ( '$name', '$lastName', '$email',
+            VALUES ( '$name', $admin, '$lastName', '$email',
             '$gender', $age, '$streetAddress',
             '$city', '$state', '$PC','$phoneNumber'
             )"

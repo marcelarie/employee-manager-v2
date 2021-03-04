@@ -8,7 +8,7 @@ abstract class Controller
     public $action;
     public $parameter;
 
-    public function __construct($name, $action, $parameter)
+    public function __construct($name, $action = false, $parameter = false)
     {
         $this->name = $name;
         $this->action = $action;

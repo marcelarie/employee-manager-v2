@@ -30,6 +30,7 @@ class LoginController extends Controller
             $access = new Router;
             $_SESSION['sessionTimer'] = time();
             $_SESSION['userId'] = $user['id'];
+            $_SESSION['userName'] = $user['name'];
             $access->setRoute('../employeeDashboard/table/all');
         } else {
             require_once 'app/helpers/loginTimeOutSession.php';

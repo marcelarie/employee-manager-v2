@@ -1,3 +1,4 @@
+
 <?php
 
 // requires
@@ -5,28 +6,28 @@ require_once 'app/config/constants.php';
 require_once CLASS_CONTROLLER;
 require_once DB_CONSTANTS;
 
-class EmployeeDashboardController extends Controller
+class AdminPanelController extends Controller
 {
     public function __construct($name, $action, $parameter)
     {
         parent::__construct($name, $action, $parameter);
 
-        if ($_REQUEST['name'] &&
-         $_REQUEST['url'] === 'employeeDashboard/table/all') {
+
+        if ($_REQUEST['admin'] &&
+         $_REQUEST['url'] === 'adminPanel/table/all') {
             $data = $_REQUEST;
             $this->add($data);
         }
     }
-
     public function table($all)
     {
         require_once MODELS . $this->name . '.php';
         $modelName = $this->name . 'Model';
         $model = new $modelName($this->name);
 
-        $employeeDashboardModel = new EmployeeDashboardModel('employees');
+        $adminPanelModel = new AdminPanelModel('employees');
 
-        $employees = $employeeDashboardModel->get();
+        $employees = $adminPanelModel->getByParameters([ 'admin' => 1 ]);
 
         $data = ['employees' => $employees];
 
@@ -37,7 +38,7 @@ class EmployeeDashboardController extends Controller
     {
         require_once MODELS . $this->name . '.php';
 
-        $employeeDashboardModel= new EmployeeDashboardModel('employees');
-        $employeeDashboardModel->add($data);
+        $adminPanelDashboard = new AdminPanelModel('employees');
+        $adminPanelDashboard->add($data);
     }
 }

@@ -5,7 +5,11 @@
         <li><a href="../../employeeDashboard/table/all" >Dashboard</a></li>
     </ul>
     <ul class="admin-panel" >
-        <li><a href="../../adminPanel/table/all" > Control Panel⚙️</a></li>
+<?php
+    if ($employees[$_SESSION['userId'] - 1]['admin']) {
+        echo "<li><a href='../../adminPanel/table/all'> Control Panel⚙️</a></li>";
+    }
+?>
 <?php
     $name = $_SESSION['userName'];
     $id = $_SESSION['userId'];
